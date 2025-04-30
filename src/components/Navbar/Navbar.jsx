@@ -19,7 +19,7 @@ export default function Navbar({ user, setUser }) {
             <>
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/experience">Home</Link></li>
-                <li><Link to="/experience/new">Add Your Experience</Link></li>
+                <li><Link to="/experience/new">Add Experience</Link></li>
                 <li><Link to="/categories">Categories</Link></li>
                 <li><Link to="/about">About</Link></li>
                 <form id="logout-form" onSubmit={handleLogout}>

@@ -7,7 +7,7 @@
 
 body {
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: linear-gradient(rgb(209, 175, 175), purple);
+  background: linear-gradient(rgb(209, 175, 175), rgb(186, 129, 224));
   /* color: #0cc744; */
   padding: 0%;
 }
@@ -31,7 +31,7 @@ header {
 
 /* حاوية الشعار */
 .header-logo-container img {
-  height: 90px;
+  height: 80px;
   width: auto;
 }
 

@@ -1,0 +1,106 @@
+:root {
+  --font-main: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --color-bg: linear-gradient(to bottom, #f9f4ff, #e6ccf0);
+  --color-primary: #e8da92;
+  --color-secondary: #7f8c8d;
+  --color-accent: #963080;
+  --color-white: #ffffff;
+  --radius: 12px;
+  --transition: 0.3s ease;
+}
+
+/* Base reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--color-bg);
+  color: var(--color-primary);
+}
+
+/* Main container */
+.exp-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Header section */
+.exp-header {
+  height: auto;
+  width: 1000px;
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.exp-header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 1rem; */
+}
+
+.exp-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.exp-description {
+  font-size: 1rem;
+  color: var(--color-secondary);
+  max-width: 600px;
+}
+
+.exp-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-top: 1rem;
+}
+
+/* Cards wrapper */
+.exp-cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Loading message */
+.exp-loading {
+  font-size: 1.2rem;
+  color: var(--color-secondary);
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Optional: Add hover animation to cards if your ExpIndexCard supports it */
+.exp-cards-wrapper > * {
+  transition: transform var(--transition);
+}
+.exp-cards-wrapper > *:hover {
+  transform: translateY(-5px);
+}
+.exp-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* يحفظ الترتيب الافتراضي مع العنوان على اليسار */
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.exp-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  order: 2; /* يجعل الصورة تظهر في الجهة اليمنى */
+}
+

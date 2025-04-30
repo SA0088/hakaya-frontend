@@ -1,99 +1,63 @@
-🌟 Project Name: Hakaya (Experiences Platform)
-📖 Description
-Hakaya is a platform where users can explore and share different experiences across multiple categories.
-Users can like experiences they enjoy and view them later on their Favorites page.
+# Hakaya Frontend 🌟
 
-🎯 Features
-Browse experiences by category.
+## 📝 Project Description
+Hakaya is a storytelling and experience-sharing platform that allows users to explore, post, and interact with stories across various categories such as Adventure, Cooking, Volunteering, Culture, and more. The frontend provides an intuitive user interface for browsing, liking, and reviewing experiences. 💬📸
 
-Upload personal experiences with images.
+## 📂 Repository Description
+This is the frontend of the Hakaya platform, built using modern web technologies. It communicates with the backend API to display experiences, handle user interactions, and manage authentication. It aims to deliver a responsive, clean, and accessible user experience. 🌐
 
-Like experiences directly.
+## 🛠️ Tech Stack
+- **Framework:** React ⚛️
+- **Routing:** React Router 🧭
+- **State Management:** Context API / useState 🔁
+- **HTTP Requests:** Axios 🌐
+- **Styling:** Tailwind CSS 🎨
+- **Authentication:** JWT-based auth handled via API tokens 🔒
+- **Deployment:** Vite + optional Docker 🐳
 
-Save liked experiences to the Favorites page.
+## 🔗 Backend Repository Link
+- [Hakaya Backend Repository](https://github.com/SA0088/hakaya-backend)
 
-Leave reviews and rate experiences.
+## 🌍 Link to Deployed Site
+- [Live Site](http://localhost:5173/experince) *(Replace with actual deployed URL if hosted)*
 
-User authentication (Sign up / Login).
+---
 
+## 🐳 Installation Instructions (Docker)
 
-🛠️ Technologies Used
-Frontend: React.js (or your preferred framework)
+To run the Hakaya frontend using Docker:
 
-Backend: Node.js with Express.js / Laravel / Django (choose your stack)
+1. **Clone the Repository**
+```bash
+git clone https://github.com/SA0088/hakaya-frontend.git
+cd hakaya-frontend
+```
 
-Database: MySQL / PostgreSQL
+2. **Build the Docker Image**
+```bash
+docker build -t hakaya-frontend .
+```
 
-Storage: Local server or Cloud (for image uploads)
+3. **Run the Container**
+```bash
+docker run -p 5173:5173 hakaya-frontend
+```
 
+> The frontend should now be accessible at `http://localhost:5173`
 
-🗂️ Database Structure (Summary)
-Main Tables:
-Users
+---
 
-Categories
+## 🧊 IceBox Features
 
-Experiences
+The following features are planned for future releases but are not yet implemented:
 
-Reviews
+- **🔐 User Dashboard**: A personal dashboard for managing posted experiences and reviews.
+- **📊 Filtering & Sorting**: Filter experiences by category, likes, or date.
+- **🌓 Dark Mode**: Toggle between light and dark UI themes.
+- **🌍 Multilingual Support**: Language toggle (e.g., Arabic/English).
+- **🔔 Notifications**: Real-time notifications for likes and reviews.
+- **🖼️ Live Image Preview**: Show a preview before uploading an experience image.
 
-Important Fields:
-Users: id, name, email, password, favorite_experiences (array)
+---
 
-Categories: id, name, description
-
-Experiences: id, title, summary, image_path, category_id, creator_id,  likes_count, created_at
-
-Reviews: id, user_id, experience_id, comment, likes_count
-
-
-🖼️ Image Upload Strategy
-Images are uploaded through a form directly from the user’s device.
-
-Stored either locally (/uploads/experiences/) or on a cloud service like AWS S3.
-
-The image_path in the database stores the saved image location. 
-
-
-📚 How Favorites Work
-When a user likes an experience, its ID is saved into their favorite_experiences field.
-
-On the Favorites Page, all experiences related to these IDs are displayed.
-
-🔥 API Endpoints 
-🧑‍💼 User Endpoints
-
-Method	URL	Description
-POST	/register	Register a new user
-POST	/login	Login and authenticate
-GET	/users/me	Fetch the current user profile
-PUT	/users/me/favorites	Update user's favorite experiences
-📚 Category Endpoints
-
-Method	URL	Description
-GET	/categories	Get all categories
-POST	/categories	Create a new category (Admin only)
-✨ Experience Endpoints
-
-Method	URL	Description
-GET	/experiences	List all experiences
-GET	/experiences/:id	View a specific experience
-POST	/experiences	Submit a new experience
-PUT	/experiences/:id/like	Like an experience
-DELETE	/experiences/:id	Delete an experience (Admin or Owner)
-📝 Review Endpoints
-
-Method	URL	Description
-POST	/reviews	Add a review to an experience
-PUT	/reviews/:id/like	Like a review
-
-
-
-🌍 Future Enhancements
-Full admin dashboard.
-
-Push notifications for likes and reviews.
-
-Advanced filtering (by category, popularity, etc).
-
-Responsive mobile-friendly PWA app.
+> 🚧 *Work in Progress*: These features are planned to enhance user engagement and usability.
