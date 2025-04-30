@@ -19,7 +19,7 @@ This is the frontend of the Hakaya platform, built using modern web technologies
 - [Hakaya Backend Repository](https://github.com/SA0088/hakaya-backend)
 
 ## 🌍 Link to Deployed Site
-- [Live Site](http://localhost:5173/experince) *(Replace with actual deployed URL if hosted)*
+- [Live Site](http://localhost:5173/experince) 
 
 ---
 
