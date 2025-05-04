@@ -1,50 +1,52 @@
-/* Reset and base styles */
+/* Reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: linear-gradient(rgb(209, 175, 175), rgb(186, 129, 224));
-  /* color: #0cc744; */
-  padding: 0%;
+/* Structure */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-/* Header container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
 header {
   background-color: #ffffff;
-  margin: 1rem 1rem 1rem 1rem;
+  margin: 1rem;
   border-radius: 50px;
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* يوزع الشعار على اليسار والقائمة على اليمين */
+  justify-content: space-between;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
-  width: 100%;
+  width: calc(100% - 2rem);
   height: 70px;
 }
 
-/* حاوية الشعار */
 .header-logo-container img {
   height: 80px;
   width: auto;
 }
 
-/* تنسيق القائمة */
+/* Navbar */
 nav ul {
   list-style: none;
   display: flex;
   gap: 2rem;
-  margin: 0;
-  padding: 0;
 }
 
-/* تنسيق الروابط */
 nav a {
   text-decoration: none;
   color: #4e1878;
@@ -53,17 +55,44 @@ nav a {
 }
 
 nav a:hover {
-  color: #a382a8;
-}
-
-
-nav a:hover {
   color: #2c3e50;
 }
 
-/* Main section */
+/* Main Content */
 main {
+  flex: 1;
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+}
+
+/* Footer */
+footer {
+  background-color: #f8f8f8;
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+/* منع أي عنصر من التمدد خارج الشاشة */
+body, html {
+  overflow-x: hidden;
+}
+
+/* تأكيد أن لا يوجد padding أو margin زائد في الفوتر */
+footer {
+  margin-bottom: 0;
+}
+
+/* منع الصور أو العناصر من تجاوز العرض */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* اختياري: اجبار كل شيء على احترام العرض */
+* {
+  max-width: 100vw;
 }

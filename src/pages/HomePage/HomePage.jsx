@@ -1,3 +1,68 @@
+// import "./styles.css";
+// import explore from "../../assets/images/1.png";
+// import { useEffect, useState } from "react";
+// import * as expAPI from "../../utilities/exp-api";
+// // import ExpIndexCard from "../../components/expIndexCard/expIndexCard";
+
+// export default function ExpIndexPage() {
+//   const [allExp, setAllExp] = useState([]);
+
+//   // useEffect(() => {
+//   //   async function getAllExp() {
+//   //     try {
+//   //       const expData = await expAPI.index();
+//   //       setAllExp(expData); // ✅ تحديث الحالة
+//   //     } catch (err) {
+//   //       console.log(err);
+//   //     }
+//   //   }
+//   //   if (allExp.length === 0) getAllExp();
+//   // }, []);
+
+//     useEffect(() => {
+//         async function getAllExp() {
+//             try {
+//                 const expData = await expAPI.index();
+//                 if (Array.isArray(expData)) {
+//                     setAllExp(expData);
+//                 } else {
+//                     console.error("Expected an array but got:", expData);
+//                 }
+//             } catch (err) {
+//                 console.log("Failed to fetch experiences:", err);
+//             }
+//         }
+
+//         if (allExp.length === 0) getAllExp();
+//     }, []);
+
+//     return (
+//       <main className="exp-page">
+//         <header className="exp-header">
+//           <div className="exp-header-content">
+//             <div className="exp-title-wrapper">
+//               <img src={explore} alt="Explore" className="exp-icon" />
+//               <h1 className="exp-title">Step Into a World of Experiences</h1>
+//             </div>
+//             <p className="exp-description">
+//               Embark on a journey of discovery and joy, where every experience tells a new story.
+//             </p>
+//           </div>
+//         </header>
+    
+//         {/* <section className="exp-cards-wrapper">
+//           {allExp.length > 0 ? (
+//             allExp.map((experience) => (
+//               <ExpIndexCard key={experience.id} experience={experience} />
+//             ))
+//           ) : (
+//             <div className="exp-loading">Loading experiences...</div>
+//           )}
+//         </section> */}
+//       </main>
+//     );
+    
+// }
 import "./styles.css";
 import explore from "../../assets/images/1.png";
 import { useEffect, useState } from "react";
@@ -6,60 +71,54 @@ import ExpIndexCard from "../../components/expIndexCard/expIndexCard";
 
 export default function ExpIndexPage() {
   const [allExp, setAllExp] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   async function getAllExp() {
-  //     try {
-  //       const expData = await expAPI.index();
-  //       setAllExp(expData); // ✅ تحديث الحالة
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   }
-  //   if (allExp.length === 0) getAllExp();
-  // }, []);
-
-    useEffect(() => {
-        async function getAllExp() {
-            try {
-                const expData = await expAPI.index();
-                if (Array.isArray(expData)) {
-                    setAllExp(expData);
-                } else {
-                    console.error("Expected an array but got:", expData);
-                }
-            } catch (err) {
-                console.log("Failed to fetch experiences:", err);
-            }
+  useEffect(() => {
+    async function getAllExp() {
+      try {
+        const expData = await expAPI.index();
+        if (Array.isArray(expData)) {
+          setAllExp(expData);
+        } else {
+          console.error("Expected an array but got:", expData);
         }
+      } catch (err) {
+        console.log("Failed to fetch experiences:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
 
-        if (allExp.length === 0) getAllExp();
-    }, []);
+    getAllExp();
+  }, []);
 
-    return (
-      <main className="exp-page">
-        <header className="exp-header">
-          <div className="exp-header-content">
-            <div className="exp-title-wrapper">
-              <img src={explore} alt="Explore" className="exp-icon" />
-              <h1 className="exp-title">Step Into a World of Experiences</h1>
-            </div>
-            <p className="exp-description">
-              Embark on a journey of discovery and joy, where every experience tells a new story.
-            </p>
+  return (
+    <main className="exp-page">
+      <header className="exp-header">
+        <div className="exp-header-content">
+          <div className="exp-title-wrapper">
+            <img src={explore} alt="Explore" className="exp-icon" />
+            <h1 className="exp-title">Step Into a World of Experiences</h1>
           </div>
-        </header>
-    
+          <p className="exp-description">
+            Embark on a journey of discovery and joy, where every experience tells a new story.
+          </p>
+        </div>
+      </header>
+
+      {loading ? (
+        <div className="exp-loading">Loading experiences...</div>
+      ) : (
         <section className="exp-cards-wrapper">
           {allExp.length > 0 ? (
             allExp.map((experience) => (
               <ExpIndexCard key={experience.id} experience={experience} />
             ))
           ) : (
-            <div className="exp-loading">Loading experiences...</div>
+            <div className="exp-loading">No experiences found.</div>
           )}
         </section>
-      </main>
-    );
-    
+      )}
+    </main>
+  );
 }

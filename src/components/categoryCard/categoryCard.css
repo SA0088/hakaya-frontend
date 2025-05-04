@@ -1,0 +1,87 @@
+/* .category-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 280px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .category-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .category-card-content {
+    padding: 16px;
+  }
+  
+  .category-card h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .category-card p {
+    font-size: 1rem;
+    color: #666;
+  }
+   */
+
+   .category-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    background-color: #ffffff;
+  }
+  
+  .category-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+  }
+  
+  .category-card a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .category-card-content img {
+    width: 100%;                /* يجعل الصورة تمتد بعرض البطاقة */
+    height: 190px;              /* ارتفاع ثابت للصور */
+    /* object-fit: cover;          يحافظ على أبعاد الصورة ويقص الزائد */
+    display: block;             /* يمنع المسافات أسفل الصورة */
+    object-fit: contain;        /* يعرض الصورة كاملة بدون قص */
+    background-color: #f9fafb;  /* لون خلفية خفيف لملء الفراغات */
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+  
+  .category-card-content {
+    padding: 16px;
+  }
+  
+  .category-card-content h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937; /* dark gray */
+    margin: 0 0 8px 0;
+  }
+  
+  .category-card-content h3 {
+    font-size: 0.95rem;
+    color: #4b5563; /* medium gray */
+    margin: 0;
+  }
+  

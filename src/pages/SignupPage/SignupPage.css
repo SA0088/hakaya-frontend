@@ -1,0 +1,158 @@
+.signup-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    /* background: #f8f8f8; */
+    padding-top: 40px;
+  }
+
+/* ===== تصميم اللوقو ===== */
+/* .logo-overlay {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  transition: all 1s ease;
+  z-index: 2;
+}
+
+.logo-overlay.shrink {
+  transform: scale(0.6) translateY(-80px);
+}
+
+.logo-img {
+  max-width: 320px;
+  height: auto;
+  transition: all 1s ease;
+} */
+/* ✨ حركة اللوقو */
+.logo-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1s ease;
+    z-index: 10;
+  }
+  
+  .logo-overlay.shrink {
+    top: 100px; /* يرتفع قليلاً فقط فوق الفورم */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .logo-img {
+    width: 800px;
+    transition: all 1s ease;
+    /* padding-bottom: 10px; */
+  }
+  
+  .logo-overlay.shrink .logo-img {
+    width: 380px; /* يصغر بشكل بسيط */
+  }
+/* ===== العنوان ===== */
+.page-header {
+  text-align: center;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  color: #45105e;
+  font-size: 2rem;
+}
+
+/* ===== النموذج ===== */
+.form-container.signup {
+  position: relative;
+  z-index: 1;
+  background-color: #ffffff;
+  width: 90%;
+  max-width: 500px;
+  margin: -20px auto 10px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInForm 1s ease 2s forwards;
+  opacity: 0;
+  
+}
+
+@keyframes fadeInForm {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-container table {
+  width: 100%;
+}
+
+.form-container th,
+.form-container td {
+  padding: 10px;
+  vertical-align: top;
+  text-align: left;
+}
+
+.form-container th {
+  width: 35%;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fafafa;
+}
+
+/* ===== زر الإرسال ===== */
+.btn.submit {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #6a5acd;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn.submit:hover {
+  background-color: #5b4ecf;
+  transform: translateY(-2px);
+}
+
+/* ===== رسائل الخطأ ===== */
+.error {
+  color: #d9534f;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .login-link a {
+    color: #540a80;
+    text-decoration: none;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+  
