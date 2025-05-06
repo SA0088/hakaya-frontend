@@ -1,6 +1,7 @@
 // IMPORTS
 import { useState, useEffect } from "react";
-
+import { Link } from "react-router"; 
+import "./ExpIndexPage.css"
 // COMPONENTS
 import ExpIndexCard from "../../components/expIndexCard/expIndexCard";
 
@@ -24,24 +25,28 @@ export default function ExpIndexPage() {
     getAllExps();
   }, []);
 
-  const displayAllExps = Array.isArray(allExperiences)
-    ? allExperiences.map((exp) => (
-        <ExpIndexCard key={exp.id} experience={exp} />
-      ))
-    : [];
 
-  return (
-    <>
-      <section className="page-header">
-        <h1>Experience List</h1>
-      </section>
-      <section className="index-card-container">
-        {displayAllExps.length > 0 ? (
-          displayAllExps
-        ) : (
-          <p>No experiences to display.</p>
-        )}
-      </section>
-    </>
+ 
+    const displayAllExps = Array.isArray(allExperiences)
+      ? allExperiences.map((exp) => (
+          <ExpIndexCard key={exp.id} experience={exp} />
+        ))
+    : [];
+    return (
+      <>
+        <section className="page-header">
+          <h1>Experience List</h1>
+        </section>
+        <p className="btn submit">
+          <Link to="/experiences/new">Add your Experience</Link>
+        </p>
+        <section className="index-card-container">
+          {displayAllExps.length > 0 ? (
+            displayAllExps
+          ) : (
+            <p>No experiences to display.</p>
+          )}
+        </section>
+      </>
   );
 }

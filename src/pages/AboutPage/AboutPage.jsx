@@ -13,7 +13,7 @@ export default function AboutPage() {
 
       <section className="about-section">
         <h2>What is HAKAYA?</h2>
-        <p>
+        <p >
           HAKAYA is a community-driven platform where users can share, explore, and connect through real-life experiences. 
           Whether it's an adventure, a personal journey, or a volunteer moment — your story matters.
         </p>
@@ -45,18 +45,6 @@ export default function AboutPage() {
         <p>Have questions or feedback? Reach out to us anytime:</p>
         <p>Email: <a href="mailto:contact@hakaya.com">contact@hakaya.com</a></p>
       </section>
-
-      {/* <footer className="about-footer">
-        <h2>Follow HAKAYA</h2>
-        <div className="social-icons">
-          <a href="#"><FaFacebookF /></a>
-          <a href="#"><FaInstagram /></a>
-          <a href="#"><FaTwitter /></a>
-          <a href="#"><FaYoutube /></a>
-          <a href="#"><FaLinkedin /></a>
-        </div>
-        <p className="footer-note">© {new Date().getFullYear()} HAKAYA. All rights reserved.</p>
-      </footer> */}
     </div>
   );
 }

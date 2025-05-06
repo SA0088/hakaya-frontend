@@ -59,7 +59,7 @@
   
   .category-card-content img {
     width: 100%;                /* يجعل الصورة تمتد بعرض البطاقة */
-    height: 190px;              /* ارتفاع ثابت للصور */
+    height: 0px;              /* ارتفاع ثابت للصور */
     /* object-fit: cover;          يحافظ على أبعاد الصورة ويقص الزائد */
     display: block;             /* يمنع المسافات أسفل الصورة */
     object-fit: contain;        /* يعرض الصورة كاملة بدون قص */

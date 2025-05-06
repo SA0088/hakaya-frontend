@@ -1,5 +1,4 @@
 .logo-overlay {
-    /* position: fixed; */
     top: 20px;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -9,7 +8,7 @@
   
   .logo-overlay.shrink {
     top: 20px;   
-    /* top: 100px; */
+    top: 100px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -30,7 +29,7 @@
     display: flex;
     justify-content: center;
     animation: fadeIn 1s ease-in-out; */
-    margin-top: 150px; /* جعل الفورم يبدأ من أسفل الشعار */
+    margin-top: 150px; 
     display: flex;
     justify-content: center;
     animation: fadeIn 1s ease-in-out;
@@ -38,6 +37,7 @@
   
   .login-form {
     margin-top: 20px;
+
     background-color: #ffffff;
     padding: 30px 40px;
     border-radius: 16px;
@@ -139,7 +139,4 @@
   .signup-link a:hover {
     text-decoration: underline;
   }
-   
-
-
    

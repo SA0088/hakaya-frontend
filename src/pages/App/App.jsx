@@ -112,6 +112,8 @@ export default function App() {
           <Route path="/categories" element={<CategoriesPage />} />
           <Route path="/experiences/:id" element={<ExpDetailPage />} />
           <Route path="/experiences/new" element={<ExpFormPage />} />
+          <Route path="/experiences/edit/:id"           element={<ExpFormPage editCat={true}   />}/>
+          <Route path="/experiences/confirm_delete/:id" element={<ExpFormPage deleteCat={true} />}/>
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/login" element={<LoginPage user={user} setUser={setUser} />} />
           <Route path="/reset-password" element={<ForgotPass />} />

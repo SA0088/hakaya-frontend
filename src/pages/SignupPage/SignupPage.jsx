@@ -91,7 +91,7 @@ export default function SignupPage({ setUser }) {
       const newUser = await usersAPI.signup(formData);
       setUser(newUser);
       setFormData(initialState);
-      navigate("/experiences");
+      navigate("/home");
     } catch (err) {
       console.log(err);
       setUser(null);
@@ -106,7 +106,7 @@ export default function SignupPage({ setUser }) {
                 <img src={Logohakayalogo} alt="Hakaya Logo" className="logo-img" />
             </div>
         </div> */}
-        <div className={`logo-wrapper ${animateLogo ? "shrink" : ""}`}>
+        <div className={`logo-wrapper1 ${animateLogo ? "shrink" : ""}`}>
             <img src={Logohakayalogo} alt="Hakaya Logo" className="logo-img" />
         </div>
 

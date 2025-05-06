@@ -68,13 +68,13 @@ main {
 }
 
 /* Footer */
-footer {
+/* footer {
   background-color: #f8f8f8;
   text-align: center;
   padding: 1rem;
   border-top: 1px solid #ccc;
   font-size: 0.9rem;
-}
+} */
 /* منع أي عنصر من التمدد خارج الشاشة */
 body, html {
   overflow-x: hidden;

@@ -1,0 +1,83 @@
+    /* Wrapper around the entire detail page */
+.exp-detail-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+    /* Image styling */
+.exp-detail-image {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
+    }
+
+    /* Title */
+.exp-detail-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+    /* Creator info */
+.exp-detail-creator {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+    /* Summary section */
+.exp-detail-summary {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+    /* Optional: Add spacing above the review form */
+.exp-review-form {
+    margin-top: 2rem;
+}
+.review-section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    color: #333;
+}
+
+.review-list {
+    margin-top: 2rem;
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+}
+
+.review-card {
+    background-color: #f9f9f9;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.review-user {
+    font-weight: bold;
+    color: #555;
+}
+
+.review-text {
+    color: #333;
+    margin-top: 0.25rem;
+}
+
+.no-reviews {
+    color: #777;
+    font-style: italic;
+}

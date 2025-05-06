@@ -30,7 +30,7 @@ body {
 }
 
 /* Header section */
-.exp-header {
+/* .exp-header {
   height: auto;
   width: 1000px;
   background-color: var(--color-white);
@@ -39,8 +39,17 @@ body {
   padding: 2rem;
   margin-bottom: 2rem;
   text-align: center;
+} */
+.exp-header {
+  max-width: 1000px;
+  margin: 0 auto 2rem; /* Auto لتوسيط الهيدر أفقيًا */
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  text-align: center;
+  height: auto;
 }
-
 .exp-header-content {
   display: flex;
   flex-direction: column;
@@ -67,22 +76,23 @@ body {
   margin-top: 1rem;
 }
 
-/* Cards wrapper */
 .exp-cards-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
 }
 
-/* Loading message */
 .exp-loading {
   font-size: 1.2rem;
   color: var(--color-secondary);
   text-align: center;
   padding: 2rem;
 }
+.btn-primary {
+  background-color: #571a90;
+  color: white;
+}
 
-/* Optional: Add hover animation to cards if your ExpIndexCard supports it */
 .exp-cards-wrapper > * {
   transition: transform var(--transition);
 }
@@ -92,7 +102,7 @@ body {
 .exp-title-wrapper {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* يحفظ الترتيب الافتراضي مع العنوان على اليسار */
+  justify-content: flex-start; 
   gap: 1rem;
   flex-wrap: wrap;
 }
@@ -101,6 +111,27 @@ body {
   width: 50px;
   height: 50px;
   object-fit: contain;
-  order: 2; /* يجعل الصورة تظهر في الجهة اليمنى */
+  order: 2; 
 }
 
+.btn-primary {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 1.5rem;
+  width: 50px;
+}
+
+
+.btn-primary:hover {
+  background-color: #6b7074; /* لون أغمق عند التمرير */
+  transform: translateY(-2px);
+} 
