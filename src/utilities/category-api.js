@@ -34,3 +34,13 @@ export async function index() {
 export async function show(catId) {
     return sendRequest(`${url}${catId}/`)
 }
+
+// export async function getCategoryWithExperiences(catId) {
+//     const res = await fetch(`/categories/${catId}/experiences`);
+//     if (!res.ok) throw new Error("Failed to fetch category with experiences");
+//     return res.json();
+//   }
+
+export async function getCategoryWithExperiences(id) {
+    return sendRequest(`${BASE_URL}${id}/experiences`);
+  }

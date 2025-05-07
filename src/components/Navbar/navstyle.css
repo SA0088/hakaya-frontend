@@ -10,7 +10,7 @@
   margin: 0;
 }
 
-.index-card-container {
+.index-card-container1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -62,7 +62,7 @@
 }
 
 /* Empty state message */
-.index-card-container p {
+.index-card-container1 p {
   font-size: 1.2rem;
   color: #666;
   text-align: center;

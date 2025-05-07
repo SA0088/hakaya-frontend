@@ -34,10 +34,10 @@ export default function ExpIndexPage() {
     : [];
     return (
       <>
-        <section className="page-header">
+        <section className="page-header1">
           <h1>Experience List</h1>
         </section>
-        <p className="btn submit">
+        <p className="btn submit1">
           <Link to="/experiences/new">Add your Experience</Link>
         </p>
         <section className="index-card-container">

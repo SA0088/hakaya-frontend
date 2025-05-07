@@ -44,7 +44,7 @@ export default function ExpIndexPage() {
       </header>
 
       {/* رابط لاكتشاف المزيد من التجارب */}
-      <p className="btn submit">
+      <p className="btn submit1">
         <Link to="/experiences">Discover more</Link>
       </p>
     </main>

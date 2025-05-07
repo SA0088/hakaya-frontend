@@ -46,9 +46,11 @@ body {
   background-color: var(--color-white);
   border-radius: var(--radius);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  padding: 2rem;
+  padding: 3.5rem;
   text-align: center;
   height: auto;
+  display: flex;
+  justify-content: center;
 }
 .exp-header-content {
   display: flex;

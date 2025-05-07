@@ -24,10 +24,14 @@ export async function login(formData) {
     }
 }
 
+
+
 export function logout() {
     localStorage.removeItem('token');
 }
 
+  
+  
 export async function getUser() {
     try {
         const token = localStorage.getItem('token');
@@ -43,9 +47,13 @@ export async function getUser() {
     }
 }
 export async function getUserById(userId) {
-    const res = await fetch(`/users/${userId}`);
+    const res = await sendRequest(`/users/${userId}`);
     return res.json();
   }
-export async function getUserProfile() {
-    return sendRequest(`${url}profile/`);
+// export async function getUserProfile() {
+//     return sendRequest(`${url}profile/`);
+//   }
+
+export async function getUserExperiences() {
+    return sendRequest(`${BASE_URL}/my-experiences`);
   }

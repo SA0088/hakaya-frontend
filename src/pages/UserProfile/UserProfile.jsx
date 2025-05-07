@@ -1,160 +1,290 @@
+// // import { useEffect, useState } from "react";
+// // import { useNavigate } from "react-router";
+// // import * as expAPI from "../../utilities/exp-api"; // تأكد من أن هذه الدالة متوفرة لديك
+
+// // export default function UserProfile({ user }) {
+// //   const [myExperiences, setMyExperiences] = useState([]);
+// //   const [likedExperiences, setLikedExperiences] = useState([]);
+// //   const navigate = useNavigate();
+
+// //   useEffect(() => {
+// //     if (!user || !user.id) return; // التأكد من وجود user قبل جلب البيانات
+
+// //     async function fetchData() {
+// //       try {
+// //         const created = await expAPI.getUserExperiences(user.id);  // جلب التجارب التي أنشأها المستخدم
+// //         console.log('Created experiences:', created);
+
+// //         const liked = await expAPI.getLikedExperiences();  // جلب التجارب التي أعجب بها المستخدم
+// //         console.log("Liked experiences:", liked);
+
+// //         setMyExperiences(created);
+// //         setLikedExperiences(liked);
+// //       } catch (err) {
+// //         console.error("Error loading profile:", err);
+// //       }
+// //     }
+
+// //     fetchData();
+// //   }, [user]); // إعادة تنفيذ التأثير عند تغيير user
+// //   useEffect(() => {
+// //     async function fetchData() {
+// //       try {
+// //         const profileData = await expAPI.getUserProfile();
+// //         console.log(profileData)
+// //         setMyExperiences(profileData.created_experiences);
+// //         setLikedExperiences(profileData.liked_experiences);
+// //       } catch (err) {
+// //         console.error("Error loading profile:", err);
+// //       }
+// //     }
+  
+// //     fetchData();
+// //   }, []);
+// //   async function handleDelete(expId) {
+// //     if (!window.confirm("Are you sure you want to delete this experience?")) return;
+// //     try {
+// //       await expAPI.deleteExp(expId);
+// //       setMyExperiences(myExperiences.filter(exp => exp.id !== expId));
+// //     } catch (err) {
+// //       console.error("Error deleting experience:", err);
+// //     }
+// //   }
+// //   console
+// //   if (!user || !user.id) return <p>Loading profile...</p>;
+
+// //   return (
+// //     <div className="profile-page">
+// //       <header>
+// //         <h1 className="profile-heading">Welcome, {user.username}!</h1>
+// //       </header>
+
+// //       <div className="user-info">
+// //         <p><strong>Username:</strong> {user.username}</p>
+// //         <p><strong>Email:</strong> {user.email}</p>
+// //       </div>
+
+// //       <section>
+// //         <h2>My Experiences</h2>
+// //         {myExperiences?.length ? (
+// //           myExperiences.map(exp => (
+// //             <div key={exp.id} className="exp-card">
+// //               <h3>{exp.title}</h3>
+// //               <p>{exp.summary}</p>
+// //               <button onClick={() => navigate(`/edit-exp/${exp.id}`)}>Edit</button>
+// //               <button onClick={() => handleDelete(exp.id)}>Delete</button>
+// //             </div>
+// //           ))
+// //         ) : (
+// //           <p>No experiences yet.</p>
+// //         )}
+// //       </section>
+
+// //       <section>
+// //         <h2>Liked Experiences</h2>
+// //         {likedExperiences.length ? (
+// //           likedExperiences.map(exp => (
+// //             <div key={exp.id} className="exp-card liked">
+// //               <h3>{exp.title}</h3>
+// //               <p>{exp.summary}</p>
+// //             </div>
+// //           ))
+// //         ) : (
+// //           <p>You haven't liked any experiences yet.</p>
+// //         )}
+// //       </section>
+// //     </div>
+// //   );
+// // }
 // import { useEffect, useState } from "react";
+// import { useNavigate } from "react-router";
 // import * as expAPI from "../../utilities/exp-api";
+// import ExpIndexCard from "../../components/ExpIndexCard/ExpIndexCard"; // تأكد من المسار الصحيح
 
-// export default function UserProfile() {
-//   const [createdExperiences, setCreatedExperiences] = useState([]);
-//   const [loading, setLoading] = useState(true);
+// export default function UserProfile({ user }) {
+//   const [myExperiences, setMyExperiences] = useState([]);
+//   const [likedExperiences, setLikedExperiences] = useState([]);
+//   const navigate = useNavigate();
 
+//   // useEffect(() => {
+//   //   async function fetchData() {
+//   //     try {
+//   //       const profileData = await expAPI.getUserProfile();
+//   //       setMyExperiences(profileData.created_experiences);
+//   //       setLikedExperiences(profileData.liked_experiences);
+//   //     } catch (err) {
+//   //       console.error("Error loading profile:", err);
+//   //     }
+//   //   }
+
+//   //   fetchData();
+//   // }, []);
 //   useEffect(() => {
-//     async function fetchExperiences() {
+//     if (!user || !user.id) return;
+//     async function fetchData() {
 //       try {
-//         const data = await expAPI.getUserExperiences();
-//         console.log("Received data:", data);
-
-//         if (Array.isArray(data)) {
-//           setCreatedExperiences(data);
-//         } else if (Array.isArray(data.results)) {
-//           setCreatedExperiences(data.results);
-//         } else {
-//           console.error("Unexpected data format:", data);
-//           setCreatedExperiences([]); // fallback
-//         }
-
-//       } catch (error) {
-//         console.error("Error fetching user experiences:", error);
-//         setCreatedExperiences([]);
-//       } finally {
-//         setLoading(false);
+//         const profileData = await expAPI.getUserProfile();
+//         setMyExperiences(profileData.created_experiences);
+//         setLikedExperiences(profileData.liked_experiences);
+//       } catch (err) {
+//         console.error("Error loading profile:", err);
 //       }
 //     }
-
-//     fetchExperiences();
-//   }, []);
-
-//   if (loading) return <p>Loading...</p>;
-
-//   return (
-//     <div>
-//       <h1>User Profile</h1>
-//       {createdExperiences.length === 0 ? (
-//         <p>No experiences created yet.</p>
-//       ) : (
-//         <ul>
-//           {createdExperiences.map((exp) => (
-//             <li key={exp.id}>{exp.title}</li>
-//           ))}
-//         </ul>
-//       )}
-//     </div>
-//   );
-// }
-
-// import { useEffect, useState } from "react";
-// import { useParams } from "react-router";
-// import * as userAPI from "../../utilities/user-api";
-// import * as experienceAPI from "../../utilities/exp-api";
-// import "./UserProfile.css";
-
-// export default function UserProfile() {
-//   const { userId } = useParams();
-//   const [userInfo, setUserInfo] = useState(null);
-//   const [createdExperiences, setCreatedExperiences] = useState([]);
-//   const [likedExperiences, setLikedExperiences] = useState([]);
-
-//   useEffect(() => {
-//     async function fetchData() {
-//       const user = await userAPI.getUserById(userId);
-//       const created = await experienceAPI.getUserExperiences(userId);
-//       const liked = await experienceAPI.getLikedExperiences(userId);
-//       setUserInfo(user);
-//       setCreatedExperiences(created);
-//       setLikedExperiences(liked);
-//     }
-
 //     fetchData();
-//   }, [userId]);
+//   }, [user]);
 
-//   if (!userInfo) return <div>Loading...</div>;
+//   async function handleDelete(expId) {
+//     if (!window.confirm("Are you sure you want to delete this experience?")) return;
+//     try {
+//       await expAPI.deleteExp(expId);
+//       setMyExperiences(prev => prev.filter(exp => exp.id !== expId));
+//     } catch (err) {
+//       console.error("Error deleting experience:", err);
+//     }
+//   }
+
+//   if (!user || !user.id) return <p>Loading profile...</p>;
 
 //   return (
-//     <div className="profile-container">
-//       <h1>{userInfo.firstName} {userInfo.lastName}</h1>
-//       <p><strong>Username:</strong> {userInfo.username}</p>
-//       <p><strong>Email:</strong> {userInfo.email}</p>
+//     <div className="profile-page max-w-5xl mx-auto p-6">
+//       <header className="mb-8">
+//         <h1 className="text-3xl font-bold">Welcome, {user.username}!</h1>
+//       </header>
 
-//       <section className="experiences-section">
-//         <h2>Created Experiences</h2>
-//         <ul>
-//           {createdExperiences.map(exp => (
-//             <li key={exp.id}>{exp.title}</li>
-//           ))}
-//         </ul>
+//       <div className="user-info mb-8">
+//         <p><strong>Username:</strong> {user.username}</p>
+//         <p><strong>Email:</strong> {user.email}</p>
+//       </div>
+
+//       <h2 className="text-2xl font-semibold mb-4">My Experiences</h2>
+//       <section className="index-card-container">
+//         {myExperiences.length ? (
+//           myExperiences.map(exp => (
+//             <div key={exp.id} className="mb-6">
+//               <ExpIndexCard experience={exp} />
+//               <div className="flex gap-3 mt-2">
+//                 <button
+//                   onClick={() => navigate(`/edit-exp/${exp.id}`)}
+//                   className="px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+//                 >
+//                   Edit
+//                 </button>
+//                 <button
+//                   onClick={() => handleDelete(exp.id)}
+//                   className="px-4 py-1 bg-red-600 text-white rounded hover:bg-red-700"
+//                 >
+//                   Delete
+//                 </button>
+//               </div>
+//             </div>
+//           ))
+//         ) : (
+//           <p>No experiences yet.</p>
+//         )}
 //       </section>
-
-//       <section className="experiences-section">
-//         <h2>Liked Experiences</h2>
-//         <ul>
-//           {likedExperiences.map(exp => (
-//             <li key={exp.id}>{exp.title}</li>
-//           ))}
-//         </ul>
+//       <h2 className="text-2xl font-semibold mb-4">Liked Experiences</h2>
+//       <section className="index-card-container">
+//         {likedExperiences.length ? (
+//           likedExperiences.map(exp => (
+//             <div key={exp.id} className="mb-6">
+//               <ExpIndexCard experience={exp} />
+//             </div>
+//           ))
+//         ) : (
+//           <p>You haven't liked any experiences yet.</p>
+//         )}
 //       </section>
 //     </div>
 //   );
 // }
-
 import { useEffect, useState } from "react";
-import { getUserProfile } from "../../utilities/user-api"; // تأكد من أن هذا موجود في utilities
-import "./UserProfile.css";
+import { useNavigate } from "react-router";
+import * as expAPI from "../../utilities/exp-api";
+import ExpIndexCard from "../../components/ExpIndexCard/ExpIndexCard"; // Ensure correct path
 
-export default function UserProfilePage() {
-  const [userData, setUserData] = useState(null);
+export default function UserProfile({ user }) {
+  const [myExperiences, setMyExperiences] = useState([]);
+  const [likedExperiences, setLikedExperiences] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
+    if (!user || !user.id) return; // Ensure user is valid before fetching data
+
     async function fetchData() {
       try {
-        const data = await getUserProfile(); // يجب أن يعيد { user, createdExperiences, likedExperiences }
-        setUserData(data);
-      } catch (error) {
-        console.error("Error fetching profile:", error);
+        // Assuming `getUserProfile` provides the correct data
+        const profileData = await expAPI.getUserProfile(); 
+        setMyExperiences(profileData.created_experiences || []);
+        setLikedExperiences(profileData.liked_experiences || []);
+      } catch (err) {
+        console.error("Error loading profile:", err);
       }
     }
+
     fetchData();
-  }, []);
+  }, [user]); // Trigger the effect whenever `user` changes
 
-  if (!userData) return <div className="loading">Loading...</div>;
+  async function handleDelete(expId) {
+    if (!window.confirm("Are you sure you want to delete this experience?")) return;
 
-  const { user, createdExperiences, likedExperiences } = userData;
+    try {
+      await expAPI.deleteExp(expId); // Deleting experience
+      setMyExperiences(prev => prev.filter(exp => exp.id !== expId)); // Update state
+    } catch (err) {
+      console.error("Error deleting experience:", err);
+    }
+  }
+
+  // Return loading state if no user is available
+  if (!user || !user.id) return <p>Loading profile...</p>;
 
   return (
-    <div className="profile-container">
-      <h1 className="profile-heading">Welcome, {user.first_name}!</h1>
-      <div className="user-info">
+    <div className="profile-page max-w-5xl mx-auto p-6">
+      <header className="mb-8">
+        <h1 className="text-3xl font-bold">Welcome, {user.username}!</h1>
+      </header>
+
+      <div className="user-info mb-8">
         <p><strong>Username:</strong> {user.username}</p>
         <p><strong>Email:</strong> {user.email}</p>
       </div>
 
-      <section className="experience-section">
-        <h2>Your Experiences</h2>
-        {createdExperiences.length ? (
-          <ul>
-            {createdExperiences.map((exp) => (
-              <li key={exp.id}>{exp.title}</li>
-            ))}
-          </ul>
+      <h2 className="text-2xl font-semibold mb-4">My Experiences</h2>
+      <section className="index-card-container">
+        {myExperiences.length ? (
+          myExperiences.map(exp => (
+            <div key={exp.id} className="mb-6">
+              <ExpIndexCard experience={exp} />
+              <div className="flex gap-3 mt-2">
+                <button
+                  // onClick={() => navigate(`/edit-exp/${exp.id}`)}
+                  onClick={() => navigate(`/experiences/${exp.id}/edit`)}
+                  className="px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(exp.id)}
+                  className="px-4 py-1 bg-red-600 text-white rounded hover:bg-red-700"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))
         ) : (
-          <p>You haven't created any experiences yet.</p>
+          <p>No experiences yet.</p>
         )}
       </section>
 
-      <section className="experience-section">
-        <h2>Liked Experiences</h2>
+      <h2 className="text-2xl font-semibold mb-4">Liked Experiences</h2>
+      <section className="index-card-container">
         {likedExperiences.length ? (
-          <ul>
-            {likedExperiences.map((exp) => (
-              <li key={exp.id}>{exp.title}</li>
-            ))}
-          </ul>
+          likedExperiences.map(exp => (
+            <div key={exp.id} className="mb-6">
+              <ExpIndexCard experience={exp} />
+            </div>
+          ))
         ) : (
           <p>You haven't liked any experiences yet.</p>
         )}

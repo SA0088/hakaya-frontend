@@ -1,6 +1,5 @@
-    /* Wrapper around the entire detail page */
 .exp-detail-container {
-    max-width: 800px;
+    max-width: 850px;
     margin: 2rem auto;
     padding: 1rem;
     background-color: #fff;
@@ -9,16 +8,18 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-    /* Image styling */
 .exp-detail-image {
+    justify-items: center;
     width: 100%;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
     height: 320px;
     object-fit: cover;
     border-radius: 0.75rem;
     margin-bottom: 1.5rem;
     }
 
-    /* Title */
 .exp-detail-title {
     font-size: 2rem;
     font-weight: bold;
@@ -26,14 +27,12 @@
     color: #333;
 }
 
-    /* Creator info */
 .exp-detail-creator {
     font-size: 1rem;
     color: #555;
     margin-bottom: 1.5rem;
 }
 
-    /* Summary section */
 .exp-detail-summary {
     font-size: 1.1rem;
     color: #444;
@@ -41,7 +40,6 @@
     margin-bottom: 2rem;
 }
 
-    /* Optional: Add spacing above the review form */
 .exp-review-form {
     margin-top: 2rem;
 }
@@ -80,4 +78,129 @@
 .no-reviews {
     color: #777;
     font-style: italic;
+} 
+
+.div-detail {
+    display: flex;
+    /* justify-items: row; */
+    gap: 100px;
+    justify-content: center;
+    font-size: 1rem;
+    flex-direction: row;
+    /* text-align: center; */
 }
+h4 {
+    text-align: center;
+}
+button{
+    background-color: Non;
+}
+/* .exp-detail-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .exp-detail-image {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .exp-detail-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .label {
+    font-weight: bold;
+    margin-top: 1rem;
+    display: block;
+  }
+  
+  .exp-detail-summary,
+  .exp-detail-creator,
+  .exp-detail-category,
+  .exp-detail-create {
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  .owner-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .owner-actions button {
+    padding: 0.5rem 1rem;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .owner-actions button:hover {
+    background-color: #005fa3;
+  }
+  
+  .like-button {
+    margin-top: 1rem;
+    background-color: whitesmoke;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #e0245e;
+  }
+  
+  .exp-review-form {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+  }
+  
+  .review-section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #444;
+  }
+  
+  .review-list {
+    margin-top: 1.5rem;
+  }
+  
+  .review-card {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+  
+  .review-user {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.25rem;
+  }
+  
+  .review-text,
+  .review-number {
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  .no-reviews {
+    color: #777;
+    font-style: italic;
+  }
+   */

@@ -1,44 +1,61 @@
+
+   /* حاوية البطاقات */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap; /* تسمح بترتيب العناصر في أسطر متعددة إذا كانت المساحة غير كافية */
+  gap: 10px; /* المسافة بين البطاقات */
+  justify-content: flex-start; /* محاذاة العناصر إلى البداية */
+}
+
+/* تصميم الكارد */
 .index-card {
-    background-color: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.75rem; /* rounded-xl */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-                0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
-    overflow: hidden;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .index-card:hover {
-    transform: scale(1.02);
-  }
-  
-  .index-card-content {
-    padding: 1rem;
-    transition: background-color 0.2s ease;
-  }
-  
-  .index-card-content:hover {
-    background-color: #f9fafb; /* hover:bg-gray-50 */
-  }
-  
-  .index-card img {
-    width: 100%;
-    height: 12rem; /* 48px * 4 = 192px */
-    object-fit: cover;
-    margin-bottom: 0.75rem;
-  }
-  
-  .index-card h2 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-  }
-  
-  .index-card h3 {
-    font-size: 0.875rem;
-    color: #4b5563; /* text-gray-600 */
-  }
-  .index-card h4{
-    font-size: 0.875rem;
-    color: #4b5563; /* text-gray-600 */
-  }
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+  width: 300px; /* تحديد عرض الكارد */
+}
+
+/* تأثير hover عند المرور على الكارد */
+.index-card:hover {
+  transform: scale(1.02);
+}
+
+/* محتوى الكارد */
+.index-card-content {
+  width: 100%; /* تأكد من أن المحتوى يتسع بالكامل داخل الكارد */
+  padding: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+/* تأثير hover على محتوى الكارد */
+.index-card-content:hover {
+  background-color: #f9fafb; /* hover:bg-gray-50 */
+}
+
+/* صورة الكارد */
+.index-card img {
+  width: 100%;
+  height: 12rem; /* 48px * 4 = 192px */
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+}
+
+/* عنوان الكارد */
+.index-card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+/* النصوص الأخرى */
+.index-card h3, .index-card h4 {
+  font-size: 0.875rem;
+  color: #4b5563; /* text-gray-600 */
+}
+/* .text-xs1{
+  font-size: .2rem;
+} */

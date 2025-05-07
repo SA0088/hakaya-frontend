@@ -3,132 +3,105 @@
 // import { useNavigate, useParams } from "react-router";
 // import * as expAPI from "../../utilities/exp-api";
 // import * as categoryAPI from "../../utilities/category-api";
-// import "./ExpFormPage.css";
+// import "./EditExpPage.css";
 
-// export default function ExpFormPage({ createExp, editExp, deleteExp }) {
+// export default function EditExperiencePage() {
 //   const initialState = {
 //     title: "",
 //     category: "",
 //     summary: "",
-//     image: null,
+//     image_path: "",
 //   };
 
 //   const [formData, setFormData] = useState(initialState);
 //   const [categories, setCategories] = useState([]);
-//   const [currExp, setCurrExp] = useState(null);
+//   const [loading, setLoading] = useState(true);
+
 //   const { id } = useParams();
 //   const navigate = useNavigate();
-//   const currentUser = JSON.parse(localStorage.getItem("user")); // اجلب المستخدم الحالي من localStorage
 
-//   useEffect(() => {
-//     async function fetchCategories() {
-//       try {
-//         const data = await categoryAPI.index();
-//         if (Array.isArray(data)) {
-//           setCategories(data);
-//         } else {
-//           console.error("Returned categories are not an array.");
+//   const currentUser = JSON.parse(localStorage.getItem("user"));
+//   export default function EditExperience() {
+//     const { id } = useParams();  // الحصول على المعرف من المسار
+  
+//     useEffect(() => {
+//       // تحميل البيانات الخاصة بالتجربة بناءً على المعرف
+//       async function fetchExperienceData() {
+//         try {
+//           const experience = await expAPI.getExperienceById(id); // افترض أن هذه الدالة موجودة في exp-api.js
+//           console.log(experience);
+//           // التعامل مع البيانات المحملة هنا
+//         } catch (err) {
+//           console.error("Error fetching experience:", err);
 //         }
-//       } catch (err) {
-//         console.log("Error fetching categories:", err);
 //       }
-//     }
-    
-//     async function getAndSetDetail() {
-//       try {
-//         const exp = await expAPI.show(id);
-//         // تأكد من أن المستخدم الحالي هو نفس الذي أنشأ التجربة
-//         if (exp.creator?.id !== currentUser?.id) {
-//           navigate("/experiences"); // ارجع إلى قائمة التجارب إذا لم يكن المستخدم هو المالك
-//         } else {
-//           setCurrExp(exp);
-//           setFormData(exp);
-//         }
-//       } catch (err) {
-//         console.log(err);
-//         setCurrExp(null);
-//         setFormData(initialState);
-//       }
-//     }
+  
+//       fetchExperienceData();
+//     }, [id]);
+//   // useEffect(() => {
+//   //   async function fetchData() {
+//   //     try {
+//   //       const [exp, cats] = await Promise.all([
+//   //         expAPI.getById(id),
+//   //         categoryAPI.index(),
+//   //       ]);
 
-//     if (editExp || deleteExp && id) getAndSetDetail();
-//     fetchCategories();
-//   }, [id, currentUser, navigate, editExp, deleteExp]);
+//   //       if (!exp.creator || !currentUser || exp.creator.id !== currentUser.id) {
+//   //         navigate("/experiences");
+//   //       } else {
+//   //         setFormData({
+//   //           title: exp.title,
+//   //           category: exp.category,
+//   //           summary: exp.summary,
+//   //           image_path: exp.image_path,
+//   //         });
+//   //         setCategories(Array.isArray(cats) ? cats : []);
+//   //       }
+//   //     } catch (err) {
+//   //       console.error("Error loading data:", err);
+//   //     } finally {
+//   //       setLoading(false);
+//   //     }
+//   //   }
 
-//   function handleChange(evt) {
-//     const { name, value } = evt.target;
+//   //   fetchData();
+//   // }, [id, navigate, currentUser]);
+
+//   function handleChange(e) {
+//     const { name, value } = e.target;
 //     setFormData({ ...formData, [name]: value });
 //   }
 
-//   function handleFileChange(evt) {
-//     const file = evt.target.files[0];
-//     setFormData({ ...formData, image: file });
-//   }
-
-//   async function handleSubmit(evt) {
-//     evt.preventDefault();
+//   async function handleSubmit(e) {
+//     e.preventDefault();
 //     try {
-//       const newExp = editExp ? await expAPI.update(formData, currExp.id) : await expAPI.create(formData);
-//       setFormData(initialState);
-//       navigate(`/experience/${newExp.id}`);
+//       const updatedExp = await expAPI.update(formData, id);
+//       navigate(`/experiences/${updatedExp.id}`);
 //     } catch (err) {
-//       console.log("Error submitting form:", err);
+//       console.error("Error updating experience:", err);
 //     }
 //   }
 
-//   async function handleDelete(evt) {
-//     evt.preventDefault();
-//     try {
-//       const response = await expAPI.deleteExp(currExp.id);
-//       if (response.success) {
-//         setFormData(initialState);
-//         navigate("/experiences");
-//       }
-//     } catch (err) {
-//       console.log("Error deleting experience:", err);
-//     }
-//   }
-
-//   if (deleteExp && !currExp) return <h1>Loading</h1>;
-//   if (deleteExp && currExp) return (
-//     <>
-//       <div className="page-header">
-//         <h1>Delete Experience?</h1>
-//       </div>
-//       <h2>Are you sure you want to delete {currExp.title}?</h2>
-//       <form onSubmit={handleDelete}>
-//         <Link to={`/experience/${currExp.id}`} className="btn secondary">Cancel</Link>
-//         <button type="submit" className="btn danger">Yes - Delete!</button>
-//       </form>
-//     </>
-//   );
-
-//   if (editExp && !currExp) return <h1>Loading</h1>;
+//   if (loading) return <h1>Loading...</h1>;
 
 //   return (
 //     <>
 //       <div className="page-header1">
-//         {editExp ? <h1>Edit {currExp.title}'s Info</h1> : <h1>Add an Experience</h1>}
+//         <h1>Edit Experience</h1>
 //       </div>
 
 //       <form className="form-container" onSubmit={handleSubmit}>
 //         <table>
 //           <tbody>
-//             {/* <tr>
-//               <th><label htmlFor="id_image">Image:</label></th>
-//               <td><img src={formData.image_path} alt={formData.title} className="exp-detail-image" /></td>
-//             </tr> */}
 //             <tr>
-//             <th><label htmlFor="id_image">Image URL:</label></th>
+//               <th><label htmlFor="id_image">Image URL:</label></th>
 //               <td>
 //                 <input
 //                   type="text"
 //                   id="id_image"
 //                   name="image_path"
 //                   value={formData.image_path}
-//                   onChange={(e) =>
-//                     setFormData({ ...formData, image_path: e.target.value })
-//                   }
+//                   onChange={handleChange}
 //                   className="border rounded px-2 py-1 w-full"
 //                   placeholder="Enter image URL"
 //                 />
@@ -143,15 +116,32 @@
 //             </tr>
 //             <tr>
 //               <th><label htmlFor="id_title">Title:</label></th>
-//               <td><input value={formData.title} type="text" name="title" required id="id_title" onChange={handleChange} /></td>
+//               <td>
+//                 <input
+//                   type="text"
+//                   name="title"
+//                   value={formData.title}
+//                   onChange={handleChange}
+//                   required
+//                   id="id_title"
+//                 />
+//               </td>
 //             </tr>
 //             <tr>
 //               <th><label htmlFor="id_category">Category:</label></th>
 //               <td>
-//                 <select name="category" value={formData.category} onChange={handleChange} required id="id_category">
+//                 <select
+//                   name="category"
+//                   value={formData.category}
+//                   onChange={handleChange}
+//                   required
+//                   id="id_category"
+//                 >
 //                   <option value="">-- Select a category --</option>
 //                   {categories.map(cat => (
-//                     <option key={cat.id} value={cat.id}>{cat.name}</option>
+//                     <option key={cat.id} value={cat.id}>
+//                       {cat.name}
+//                     </option>
 //                   ))}
 //                 </select>
 //               </td>
@@ -159,12 +149,19 @@
 //             <tr>
 //               <th><label htmlFor="id_summary">Summary:</label></th>
 //               <td>
-//                 <textarea value={formData.summary} name="summary" rows="5" required id="id_summary" onChange={handleChange}></textarea>
+//                 <textarea
+//                   name="summary"
+//                   value={formData.summary}
+//                   onChange={handleChange}
+//                   rows="5"
+//                   required
+//                   id="id_summary"
+//                 />
 //               </td>
 //             </tr>
 //           </tbody>
 //         </table>
-//         <button type="submit" className="submit2">Submit!</button>
+//         <button type="submit" className="submit2">Save Changes</button>
 //       </form>
 //     </>
 //   );
@@ -173,9 +170,9 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import * as expAPI from "../../utilities/exp-api";
 import * as categoryAPI from "../../utilities/category-api";
-import "./ExpFormPage.css"; // استخدم نفس التنسيق
+import "./EditExpPage.css";
 
-export default function EditExpPage() {
+export default function EditExperiencePage() {
   const initialState = {
     title: "",
     category: "",
@@ -195,25 +192,23 @@ export default function EditExpPage() {
     async function fetchData() {
       try {
         const [exp, cats] = await Promise.all([
-          expAPI.show(id),
-          categoryAPI.index()
+          expAPI.getById(id),
+          categoryAPI.index(),
         ]);
 
-        if (exp.creator?.id !== currentUser?.id) {
-          navigate("/experiences");
-          return;
+        if (!exp.creator || !currentUser || exp.creator.id !== currentUser.id) {
+          navigate("/experiences"); // مستخدم غير مصرح له
+        } else {
+          setFormData({
+            title: exp.title,
+            category: exp.category,
+            summary: exp.summary,
+            image_path: exp.image_path,
+          });
+          setCategories(Array.isArray(cats) ? cats : []);
         }
-
-        setFormData({
-          title: exp.title,
-          category: exp.category,
-          summary: exp.summary,
-          image_path: exp.image_path,
-        });
-
-        setCategories(Array.isArray(cats) ? cats : []);
       } catch (err) {
-        console.error("Error loading experience or categories:", err);
+        console.error("Error loading experience:", err);
       } finally {
         setLoading(false);
       }
@@ -224,14 +219,14 @@ export default function EditExpPage() {
 
   function handleChange(e) {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setFormData({ ...formData, [name]: value });
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
       const updatedExp = await expAPI.update(formData, id);
-      navigate(`/experience/${updatedExp.id}`);
+      navigate(`/experiences/${updatedExp.id}`);
     } catch (err) {
       console.error("Error updating experience:", err);
     }
@@ -244,6 +239,7 @@ export default function EditExpPage() {
       <div className="page-header1">
         <h1>Edit Experience</h1>
       </div>
+
       <form className="form-container" onSubmit={handleSubmit}>
         <table>
           <tbody>
@@ -256,6 +252,7 @@ export default function EditExpPage() {
                   name="image_path"
                   value={formData.image_path}
                   onChange={handleChange}
+                  className="border rounded px-2 py-1 w-full"
                   placeholder="Enter image URL"
                 />
                 {formData.image_path && (
@@ -272,11 +269,11 @@ export default function EditExpPage() {
               <td>
                 <input
                   type="text"
-                  id="id_title"
                   name="title"
                   value={formData.title}
                   onChange={handleChange}
                   required
+                  id="id_title"
                 />
               </td>
             </tr>
@@ -284,15 +281,17 @@ export default function EditExpPage() {
               <th><label htmlFor="id_category">Category:</label></th>
               <td>
                 <select
-                  id="id_category"
                   name="category"
                   value={formData.category}
                   onChange={handleChange}
                   required
+                  id="id_category"
                 >
                   <option value="">-- Select a category --</option>
-                  {categories.map((cat) => (
-                    <option key={cat.id} value={cat.id}>{cat.name}</option>
+                  {categories.map(cat => (
+                    <option key={cat.id} value={cat.id}>
+                      {cat.name}
+                    </option>
                   ))}
                 </select>
               </td>
@@ -301,12 +300,12 @@ export default function EditExpPage() {
               <th><label htmlFor="id_summary">Summary:</label></th>
               <td>
                 <textarea
-                  id="id_summary"
                   name="summary"
-                  rows="5"
                   value={formData.summary}
                   onChange={handleChange}
+                  rows="5"
                   required
+                  id="id_summary"
                 />
               </td>
             </tr>

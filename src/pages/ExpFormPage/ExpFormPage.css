@@ -1,5 +1,4 @@
-/* Page container */
-.page-header1 {
+/* .page-header1 {
     text-align: center;
     margin-top: 2rem;
   }
@@ -9,7 +8,6 @@
     color: #333;
   }
   
-  /* Form styling */
   .form-container {
     max-width: 700px;
     margin: 2rem auto;
@@ -19,7 +17,6 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  /* Table layout for form */
   .form-container table {
     width: 100%;
     border-collapse: collapse;
@@ -36,7 +33,6 @@
     padding: 0.5rem 1rem;
   }
   
-  /* Input fields */
   .form-container input[type="text"],
   .form-container input[type="file"],
   .form-container select,
@@ -50,7 +46,6 @@
     box-sizing: border-box;
   }
   
-  /* Button */
   .btn.submit {
     display: block;
     margin: 1.5rem auto 0;
@@ -67,4 +62,145 @@
   .btn.submit:hover {
     background-color: #834ea9;
   }
-  
+   */
+   /* ExpFormPage.css */
+
+/* Page Header */
+.page-header1 {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Form Container */
+.form-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 22px;
+  background-color: #f9f9f9;
+}
+
+/* Table Styling for the Form */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+th {
+  text-align: left;
+  padding: 0.5rem 1rem;
+  width: 25%;
+  font-size: 1rem;
+  color: #555;
+}
+
+td {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Image Preview */
+.exp-detail-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 4px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn.submit {
+  background-color: #aa72d8;
+  color: white;
+  font-weight: bold;
+}
+
+.btn.submit:hover {
+  background-color: #682e94;
+}
+
+.btn.secondary {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.btn.secondary:hover {
+  background-color: #e0e0e0;
+}
+
+.btn.danger {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn.danger:hover {
+  background-color: #d32f2f;
+}
+
+.submit2 {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  background-color: #b576e5;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.submit1 :hover {
+  background-color: #8158a4;
+}
+
+/* Loading State */
+h1 {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Error Messages */
+.error-message {
+  color: #d32f2f;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}
