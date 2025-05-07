@@ -19,7 +19,7 @@ This is the frontend of the Hakaya platform, built using modern web technologies
 - [Hakaya Backend Repository](https://github.com/SA0088/hakaya-backend)
 
 ## 🌍 Link to Deployed Site
-- [Live Site](http://localhost:5173/experince) 
+- [Live Site](http://localhost:5173/home) 
 
 ---
 
@@ -51,13 +51,20 @@ docker run -p 5173:5173 hakaya-frontend
 
 The following features are planned for future releases but are not yet implemented:
 
-- **🔐 User Dashboard**: A personal dashboard for managing posted experiences and reviews.
-- **📊 Filtering & Sorting**: Filter experiences by category, likes, or date.
-- **🌓 Dark Mode**: Toggle between light and dark UI themes.
-- **🌍 Multilingual Support**: Language toggle (e.g., Arabic/English).
-- **🔔 Notifications**: Real-time notifications for likes and reviews.
-- **🖼️ Live Image Preview**: Show a preview before uploading an experience image.
+## 🧊 IceBox – Future Frontend Features
+
+These are planned features for future development on the frontend:
+
+- 🔍 **Search bar** to filter experiences by title, category, or keywords.
+- 🗂️ **Experience filters** by popularity, date, or number of likes.
+- 📷 **Photo gallery inside experience cards** to support multiple images.
+- 📱 **Improved responsive design** for smaller screens and mobile devices.
+- 💬 **Commenting system for reviews** to allow interaction with user feedback.
+- 🧾 **Browsing history** to show the user’s recently viewed experiences.
+- 🌐 **Multi-language support (i18n)** especially for English and Arabic.
+- 🔔 **Instant notifications (toasts)** for user actions like create, delete, like, etc.
+- 📥 **Lazy loading** to load more experiences as the user scrolls.
+- 🧪 **Demo mode page** to allow guests to try the app without signing up.
 
 ---
 
-> 🚧 *Work in Progress*: These features are planned to enhance user engagement and usability.
