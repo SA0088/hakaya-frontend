@@ -1,41 +1,3 @@
-/* .category-card {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    width: 280px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    text-align: center;
-  }
-  
-  .category-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .category-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .category-card-content {
-    padding: 16px;
-  }
-  
-  .category-card h3 {
-    font-size: 1.4rem;
-    color: #333;
-    margin-bottom: 8px;
-  }
-  
-  .category-card p {
-    font-size: 1rem;
-    color: #666;
-  }
-   */
 
    .category-card {
     border: 1px solid #e5e7eb;
@@ -57,16 +19,7 @@
     display: block;
   }
   
-  .category-card-content img {
-    width: 100%;                /* يجعل الصورة تمتد بعرض البطاقة */
-    height: 0px;              /* ارتفاع ثابت للصور */
-    /* object-fit: cover;          يحافظ على أبعاد الصورة ويقص الزائد */
-    display: block;             /* يمنع المسافات أسفل الصورة */
-    object-fit: contain;        /* يعرض الصورة كاملة بدون قص */
-    background-color: #f9fafb;  /* لون خلفية خفيف لملء الفراغات */
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-  }
+  
   
   .category-card-content {
     padding: 16px;

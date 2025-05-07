@@ -106,9 +106,9 @@ export default function SignupPage({ setUser }) {
                 <img src={Logohakayalogo} alt="Hakaya Logo" className="logo-img" />
             </div>
         </div> */}
-        <div className={`logo-wrapper1 ${animateLogo ? "shrink" : ""}`}>
+        {/* <div className={`logo-wrapper1 ${animateLogo ? "shrink" : ""}`}>
             <img src={Logohakayalogo} alt="Hakaya Logo" className="logo-img" />
-        </div>
+        </div> */}
 
         <form onSubmit={handleSubmit} className="form-container signup">
             <div className="page-header">
