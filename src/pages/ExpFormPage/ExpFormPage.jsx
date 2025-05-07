@@ -68,7 +68,7 @@ export default function ExpFormPage({ createExp, editExp, deleteExp }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const newExp = editExp ? await expAPI.update(formData, currExp.id) : await expAPI.create(formData);
+      const newExp = await expAPI.create(formData);
       setFormData(initialState);
       navigate(`/experience/${newExp.id}`);
     } catch (err) {
