@@ -1,7 +1,6 @@
 import sendRequest from "./sendRequest";
 const url = "/users/"
 
-
 export async function signup(formData) {
     try {
         const response = await sendRequest(`${url}signup/`, "POST", formData)
@@ -24,14 +23,10 @@ export async function login(formData) {
     }
 }
 
-
-
 export function logout() {
     localStorage.removeItem('token');
 }
-
-  
-  
+ 
 export async function getUser() {
     try {
         const token = localStorage.getItem('token');
@@ -46,13 +41,11 @@ export async function getUser() {
         return null;
     }
 }
+
 export async function getUserById(userId) {
     const res = await sendRequest(`/users/${userId}`);
     return res.json();
-  }
-// export async function getUserProfile() {
-//     return sendRequest(`${url}profile/`);
-//   }
+}
 
 export async function getUserExperiences() {
     return sendRequest(`${BASE_URL}/my-experiences`);

@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
-import * as expAPI from "../../utilities/exp-api";  // تأكد من استيراد الدالة بشكل صحيح
-import ExperienceCard from "../../components/expIndexCard/expIndexCard"; // استيراد مكون البطاقة
+import * as expAPI from "../../utilities/exp-api";  
+import ExperienceCard from "../../components/expIndexCard/expIndexCard"; 
 import { useParams } from "react-router";
 
 export default function CategoryExperiences({ categoryId }) {
@@ -12,7 +12,7 @@ export default function CategoryExperiences({ categoryId }) {
     async function fetchExperiences() {
       try {
         const data = await expAPI.getExperiencesByCategory(id);
-        console.log("Fetched experiences:", data);  // تحقق من البيانات
+        console.log("Fetched experiences:", data);  
         setExperiences(data.experiences);
       } catch (err) {
         setError("Error fetching experiences");

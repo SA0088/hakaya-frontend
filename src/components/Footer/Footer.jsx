@@ -8,7 +8,6 @@ const Footer = () => {
       <footer className="footer">
         <div className="footer-container">
           <span className="footer-note">© {new Date().getFullYear()} HAKAYA. All rights reserved.</span>
-          {/* <span className="footer-title">Follow HAKAYA</span> */}
           <div className="social-icons">
             <a href="#"><FaFacebookF /></a>
             <a href="#"><FaInstagram /></a>

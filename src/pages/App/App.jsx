@@ -57,9 +57,8 @@ export default function App() {
           <Route path="/experiences" element={<ExpIndexPage />} />
           <Route path="/categories" element={<CategoriesPage />} />
           <Route path="/experiences/:id" element={<ExpDetailPage user={user}/>} />
-          <Route path="/category/:id/experiences" element={<Expcategory />} /> {/* المسار الجديد */}
+          <Route path="/category/:id/experiences" element={<Expcategory />} /> 
           <Route path="/experiences/new" element={<ExpFormPage />} />
-          {/* <Route path="/edit-exp/:id" element={<EditExperiencePage />} /> */}
           <Route path="/experiences/:id/edit"           element={<EditExperiencePage edit={true} user={user}   />}/>
           <Route path="/experiences/confirm_delete/:id" element={<ExpFormPage delete={true} user={user}/>}/>
           <Route path="/profile" element={<UserProfile user={user}/>} />

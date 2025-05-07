@@ -18,7 +18,7 @@ export default function ExpFormPage({ createExp, editExp, deleteExp }) {
   const [currExp, setCurrExp] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
-  const currentUser = JSON.parse(localStorage.getItem("user")); // اجلب المستخدم الحالي من localStorage
+  const currentUser = JSON.parse(localStorage.getItem("user")); 
 
   useEffect(() => {
     async function fetchCategories() {
@@ -37,9 +37,8 @@ export default function ExpFormPage({ createExp, editExp, deleteExp }) {
     async function getAndSetDetail() {
       try {
         const exp = await expAPI.show(id);
-        // تأكد من أن المستخدم الحالي هو نفس الذي أنشأ التجربة
         if (exp.creator?.id !== currentUser?.id) {
-          navigate("/experiences"); // ارجع إلى قائمة التجارب إذا لم يكن المستخدم هو المالك
+          navigate("/experiences"); 
         } else {
           setCurrExp(exp);
           setFormData(exp);
@@ -114,10 +113,7 @@ export default function ExpFormPage({ createExp, editExp, deleteExp }) {
       <form className="form-container" onSubmit={handleSubmit}>
         <table>
           <tbody>
-            {/* <tr>
-              <th><label htmlFor="id_image">Image:</label></th>
-              <td><img src={formData.image_path} alt={formData.title} className="exp-detail-image" /></td>
-            </tr> */}
+  
             <tr>
             <th><label htmlFor="id_image">Image URL:</label></th>
               <td>

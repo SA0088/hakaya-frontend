@@ -5,54 +5,7 @@
     min-height: 100vh;
     /* background: #f8f8f8; */
     padding-top: 40px;
-  }
-
-/* ===== تصميم اللوقو ===== */
-/* .logo-overlay {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 80px;
-  transition: all 1s ease;
-  z-index: 2;
-}
-
-.logo-overlay.shrink {
-  transform: scale(0.6) translateY(-80px);
-}
-
-.logo-img {
-  max-width: 320px;
-  height: auto;
-  transition: all 1s ease;
-} */
-/* ✨ حركة اللوقو */
-.logo-overlay {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 1s ease;
-    z-index: 10;
-  }
-  
-  .logo-overlay.shrink {
-    top: 100px; /* يرتفع قليلاً فقط فوق الفورم */
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .logo-img {
-    width: 400px;
-    transition: all 1s ease;
-    /* padding-bottom: 10px; */
-  }
-  
-  .logo-overlay.shrink .logo-img {
-    width: 380px; /* يصغر بشكل بسيط */
-  }
-/* ===== العنوان ===== */
+  } 
 .page-header {
   text-align: center;
   margin-top: 1px;
@@ -61,7 +14,6 @@
   font-size: 2rem;
 }
 
-/* ===== النموذج ===== */
 .form-container.signup {
   position: relative;
   z-index: 1;
@@ -114,7 +66,6 @@
   background-color: #fafafa;
 }
 
-/* ===== زر الإرسال ===== */
 .btn.submit {
   display: block;
   width: 100%;
@@ -135,7 +86,6 @@
   transform: translateY(-2px);
 }
 
-/* ===== رسائل الخطأ ===== */
 .error {
   color: #d9534f;
   font-size: 0.9rem;

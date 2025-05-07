@@ -1,18 +1,13 @@
-/* حاوية الكروت */
 .index-card-container {
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
   gap: 1.5rem;
   padding: 1.5rem;
 }
 
-/* رأس الصفحة */
 .page-header {
   text-align: center;
   margin-top: 2rem;
 }
 
-/* يمكن وضع هذا داخل categoryCard CSS أيضا */
 .category-card {
   background-color: #ffffff;
   border: 1px solid #e5e7eb;

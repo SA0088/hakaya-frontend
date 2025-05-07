@@ -29,20 +29,9 @@ body {
   padding: 2rem 1rem;
 }
 
-/* Header section */
-/* .exp-header {
-  height: auto;
-  width: 1000px;
-  background-color: var(--color-white);
-  border-radius: var(--radius);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  padding: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-} */
 .exp-header {
   max-width: 1000px;
-  margin: 0 auto 2rem; /* Auto لتوسيط الهيدر أفقيًا */
+  margin: 0 auto 2rem; 
   background-color: var(--color-white);
   border-radius: var(--radius);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
