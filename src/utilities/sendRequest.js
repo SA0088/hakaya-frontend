@@ -1,5 +1,7 @@
 export default async function sendRequest(url, method = 'GET', payload) {
+	console.log(url)
 	const token = localStorage.getItem('token')
+	console.log("Token Log in send request", token)
 	const options = { method };
   
 	if (payload) {

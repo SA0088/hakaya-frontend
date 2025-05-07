@@ -113,24 +113,41 @@ export async function toggleLikeExperience(id) {
   return sendRequest(`/experiences/${id}/liked/`, 'PUT');
 }
 
+// export async function toggleLikeReview(id) {
+//   return sendRequest(`/experiences/${id}/liked/`, 'PUT');
+// }
+export async function toggleLikeReview(reviewId) {
+  return sendRequest(`/reviews/${reviewId}/like/`, 'POST');
+}
 export async function deleteExperienceById(id) {
   return sendRequest(`/experiences/${id}/`, 'DELETE');
 }
 
-export async function addReview(experienceId, formData) {
-  return sendRequest(`${url}${experienceId}/reviews/`, "POST", formData);
+// export async function addReview(experienceId, formData) {
+//   return sendRequest(`http://localhost:8000/experiences/${experienceId}/reviews/`, "POST", formData);
+// }
+
+export async function addReview(id, reviewData) {
+  try {
+    const response = await sendRequest(`/experiences/${id}/reviews/`, "POST", reviewData);
+    console.log(response)
+
+    return response
+    // Handle success (e.g., refresh reviews list)
+  } catch (error) {
+    console.error("Error adding review:", error);
+  }
 }
 
-
 export async function update(formData, expId) {
-  return sendRequest(`${url}${expId}/`, "PUT", formData);
+  return sendRequest(`${url}${expId}/edit`, "PUT", formData);
 }
 export async function getById(id) {
   return sendRequest(`${url}${id}/`);
 }
-export function show(expId) {
-    return sendRequest(`${url}${expId}/`);
-}
+// export function show(expId) {
+//     return sendRequest(`${url}${expId}/`);
+// }
 export async function getExperiencesByCategory(categoryId) {
   const res = await sendRequest(`/categories/${categoryId}/experiences/`);
   console.log(res)
