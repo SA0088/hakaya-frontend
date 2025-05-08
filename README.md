@@ -22,6 +22,30 @@ This is the frontend of the Hakaya platform, built using modern web technologies
 - [Live Site](http://localhost:5173/home) 
 
 ---
+## 📝 Frontend API Overview
+
+| **Function**                  | **Endpoint**                                      | **Method**   | **Description**                                               |
+|-------------------------------|--------------------------------------------------|--------------|---------------------------------------------------------------|
+| **Get all categories**         | `/categories/`                                   | `GET`        | Fetches all categories.                                       |
+| **Get category by ID**         | `/categories/{id}/`                              | `GET`        | Fetches category details by ID.                               |
+| **Get category with experiences** | `/categories/{id}/experiences/`                | `GET`        | Fetches experiences for a specific category.                  |
+| **Get all experiences**        | `/experiences/`                                  | `GET`        | Fetches all experiences.                                      |
+| **Get experience by ID**       | `/experiences/{id}/`                             | `GET`        | Fetches experience details by ID.                              |
+| **Create experience**          | `/experiences/`                                  | `POST`       | Creates a new experience.                                     |
+| **Update experience**          | `/experiences/{id}/`                             | `PUT`        | Updates an existing experience.                               |
+| **Delete experience**          | `/experiences/{id}/`                             | `DELETE`     | Deletes an experience by ID.                                  |
+| **Toggle like on experience**  | `/experiences/{id}/liked/`                       | `PUT`        | Toggles the like status for a specific experience.            |
+| **Get liked experiences**      | `/experiences/users/liked`                       | `GET`        | Fetches all experiences liked by the current user.            |
+| **Add a review to experience** | `/experiences/{id}/reviews/`                     | `POST`       | Adds a review to a specific experience.                       |
+| **Like a review**              | `/reviews/{id}/like/`                            | `PUT`        | Toggles the like status on a review.                          |
+| **User signup**                | `/users/signup/`                                 | `POST`       | Signs up a new user.                                          |
+| **User login**                 | `/users/login/`                                  | `POST`       | Logs in an existing user.                                     |
+| **Get user profile**           | `/users/profile/`                                | `GET`        | Fetches the profile of the logged-in user.                    |
+| **Get user by ID**             | `/users/{id}/`                                    | `GET`        | Fetches user details by ID.                                   |
+| **Logout**                     | N/A                                              | N/A          | Logs the user out by removing the token from local storage.   |
+| **Get refreshed token**        | `/users/token/refresh/`                          | `GET`        | Refreshes the user's authentication token.                    |
+
+---
 
 ## 🐳 Installation Instructions (Docker)
 

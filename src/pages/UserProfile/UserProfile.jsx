@@ -10,7 +10,6 @@ export default function UserProfile({ user }) {
 
   useEffect(() => {
     if (!user || !user.id) return; // Ensure user is valid before fetching data
-
     async function fetchData() {
       try {
         // Assuming `getUserProfile` provides the correct data
@@ -21,13 +20,11 @@ export default function UserProfile({ user }) {
         console.error("Error loading profile:", err);
       }
     }
-
     fetchData();
   }, [user]); // Trigger the effect whenever `user` changes
 
   async function handleDelete(expId) {
     if (!window.confirm("Are you sure you want to delete this experience?")) return;
-
     try {
       await expAPI.deleteExp(expId); // Deleting experience
       setMyExperiences(prev => prev.filter(exp => exp.id !== expId)); // Update state
@@ -37,18 +34,15 @@ export default function UserProfile({ user }) {
   }
 
   if (!user || !user.id) return <p>Loading profile...</p>;
-
   return (
     <div className="profile-page max-w-5xl mx-auto p-6">
       <header className="mb-8">
         <h1 className="text-3xl font-bold">Welcome, {user.username}!</h1>
       </header>
-
       <div className="user-info mb-8">
         <p><strong>Username:</strong> {user.username}</p>
         <p><strong>Email:</strong> {user.email}</p>
       </div>
-
       <h2 className="text-2xl font-semibold mb-4">My Experiences</h2>
       <section className="index-card-container">
         {myExperiences.length ? (
@@ -75,7 +69,6 @@ export default function UserProfile({ user }) {
           <p>No experiences yet.</p>
         )}
       </section>
-
       <h2 className="text-2xl font-semibold mb-4">Liked Experiences</h2>
       <section className="index-card-container">
         {likedExperiences.length ? (
