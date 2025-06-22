@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Route, Routes, Link, useLocation, Navigate } from "react-router";
 import "./App.css";
 import LoginPage from "../LoginPage/LoginPage.jsx";
-import SignupPage from "../SignupPage/signupPage.jsx";
+import SignupPage from "../SignupPage/SignupPage.jsx";
 import HomePage from "../HomePage/HomePage.jsx";
 import AboutPage from "../AboutPage/AboutPage.jsx";
 import ExpDetailPage from "../expDetailPage/expDetailPage.jsx";

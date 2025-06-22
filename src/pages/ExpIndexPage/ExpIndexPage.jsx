@@ -35,7 +35,7 @@ export default function ExpIndexPage() {
     return (
       <>
         <section className="page-header1">
-          <h1>Experience List</h1>
+          <h1>Experiences List</h1>
         </section>
         <p className="btn submit1">
           <Link to="/experiences/new">Add your Experience</Link>
