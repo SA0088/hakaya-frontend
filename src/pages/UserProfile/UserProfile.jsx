@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import * as expAPI from "../../utilities/exp-api";
-import ExpIndexCard from "../../components/ExpIndexCard/ExpIndexCard"; // Ensure correct path
+import ExpIndexCard from "../../components/expIndexCard/expIndexCard"; // Ensure correct path
 
 export default function UserProfile({ user }) {
   const [myExperiences, setMyExperiences] = useState([]);
