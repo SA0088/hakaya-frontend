@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import CategoryCard from "../../components/categoryCard/CategoryCard";
+import CategoryCard from "../../components/categoryCard/categoryCard";
 import * as categoriesAPI from "../../utilities/category-api";
 import "./CategoryPage.css";
 
